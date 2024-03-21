@@ -11,6 +11,7 @@ const Ul = styled.ul`
   }
 
   @media only screen and (max-width: 768px) {
+    display: none;
     flex-flow: column nowrap;
     background-color: #0d2538;
     position: fixed;
