@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import RightNav from "./RightNav";
 
 const BurgerWrapper = styled.div`
   width: 2rem;
@@ -7,9 +8,14 @@ const BurgerWrapper = styled.div`
   position: fixed;
   top: 15px;
   right: 20px;
-  display: flex;
-  justify-content: space-around;
-  flex-flow: column nowrap;
+  z-index: 20;
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+  }
 
   div {
     width: 2rem;
@@ -17,6 +23,7 @@ const BurgerWrapper = styled.div`
     background-color: ${({ open }) => (open ? "#CCC" : "#333")};
     border-radius: 10px;
     transform-origin: 1px;
+    transition: all 0.3s linear;
 
     &:nth-child(1) {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
@@ -33,11 +40,14 @@ const BurgerWrapper = styled.div`
 const Burger = () => {
   const [open, setOpen] = useState(false);
   return (
-    <BurgerWrapper open={open} onClick={() => setOpen(!open)}>
-      <div />
-      <div />
-      <div />
-    </BurgerWrapper>
+    <>
+      <BurgerWrapper open={open} onClick={() => setOpen(!open)}>
+        <div />
+        <div />
+        <div />
+      </BurgerWrapper>
+      <RightNav open={open} />
+    </>
   );
 };
 export default Burger;

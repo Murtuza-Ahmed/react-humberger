@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import RightNav from "./RightNav";
 import Burger from "./Burger";
 
 const Nav = styled.nav`
@@ -24,7 +23,6 @@ const Navbar = () => {
           <h1>NavBar</h1>
         </div>
         <Burger />
-        <RightNav />
       </Nav>
     </div>
   );
